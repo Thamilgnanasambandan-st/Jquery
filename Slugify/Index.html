@@ -100,23 +100,26 @@
     </div>
     <script>
         function convertToSlug(Text, type) {
-            return Text
-                .toLowerCase()
-                .replace(/ /g, type)
-                .replace(/[*+~.()'"!:@]/g, '');
-        }
+  return Text.toLowerCase()
+    .replace(/ /g, type)
+    .replace(/[*+~.()'"!:@]/g, "");
+}
 
-        $(".convert").click(function() {
-            var getInput = $(".get-input").val();
-            var type = $("#type").val();
-            console.log(convertToSlug(getInput, type));
-            $(".show").text("www.tamil.com//" + convertToSlug(getInput, type));
-            $("#result").modal("show");
+$(".convert").click(function () {
+  var getInput = $(".get-input").val();
+  if (getInput != "") {
+    var type = $("#type").val();
+    console.log(convertToSlug(getInput, type));
+    $(".show").text("www.tamil.com//" + convertToSlug(getInput, type));
+    $("#result").modal("show");
+  } else {
+    alert("Plz Enter Content");
+  }
+});
+$(".close-1").click(function () {
+  $(".get-input").val("");
+});
 
-        })
-        $(".close-1").click(function() {
-            $(".get-input").val("");
-        })
 
     </script>
 </body>
